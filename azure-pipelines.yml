@@ -45,7 +45,7 @@ stages:
     steps:
     - task: GoTool@0
       inputs:
-        version: '1.21' # replace with your Go version
+        version: '1.21.0' # replace with your Go version
     - script: |
         go version
         go get -v -t -d ./...

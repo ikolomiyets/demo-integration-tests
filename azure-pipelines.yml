@@ -61,3 +61,21 @@ stages:
         testResultsFiles: '**/unit-tests.xml'
         failTaskOnFailedTests: true
       condition: succeededOrFailed()
+    - task: push-artifact@1
+      displayName: 'Push customers image version to the UAT stage'
+      inputs:
+        apiToken: $(artifactz.apiToken)
+        stage: 'Integration Test'
+        name: 'demo-customers'
+    - task: push-artifact@1
+      displayName: 'Push policy image version to the UAT stage'
+      inputs:
+        apiToken: $(artifactz.apiToken)
+        stage: 'Integration Test'
+        name: 'demo-policy'
+    - task: push-artifact@1
+      displayName: 'Push frontend image version to the UAT stage'
+      inputs:
+        apiToken: $(artifactz.apiToken)
+        stage: 'Integration Test'
+        name: 'demo-frontend'

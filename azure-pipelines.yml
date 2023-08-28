@@ -51,7 +51,6 @@ stages:
         go get -v -t -d ./...
       displayName: 'Get dependencies and verify Go version'
     - script: |
-        go test -v .
         go run gotest.tools/gotestsum@latest --junitfile unit-tests.xml
       displayName: 'Test'
       env:

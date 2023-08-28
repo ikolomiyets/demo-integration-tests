@@ -63,7 +63,7 @@ func TestMain(m *testing.M) {
 
 	policyImage := "ikolomiyets/demo-policy:" + versions["demo-policy"]
 	logger.Printf("pulling policy image: %v", policyImage)
-	customerImage := "ikolomiyets/demo-customers:" + versions["demo-customer"]
+	customerImage := "ikolomiyets/demo-customers:" + versions["demo-customers"]
 	frontendImage := "ikolomiyets/demo-frontend:" + versions["demo-frontend"]
 
 	if isLocal {
@@ -245,7 +245,7 @@ func TestMain(m *testing.M) {
 }
 
 func getImageVersions(client *http.Client, token string) (map[string]string, error) {
-	request, err := http.NewRequest("GET", "https://artifactor.artifactz.io/stages/Integration Test/list?artifact=demo-policy&artifact=demo-customer&artifact=demo-frontend", nil)
+	request, err := http.NewRequest("GET", "https://artifactor.artifactz.io/stages/Integration Test/list?artifact=demo-policy&artifact=demo-customers&artifact=demo-frontend", nil)
 	if err != nil {
 		logger.Fatalf("failed to build new request to https://artifactor.artifactz.io: %v", err)
 	}

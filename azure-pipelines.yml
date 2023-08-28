@@ -16,15 +16,18 @@ resources:
   - pipeline: policy-ci
     source: ikolomiyets.demo-policy
     trigger:
-      branches: master
+      branches:
+      - master
   - pipeline: customer-ci
     source: ikolomiyets.demo-customer
     trigger:
-      branches: master
+      branches:
+      - master
   - pipeline: frontend-ci
     source: ikolomiyets.demo-frontend
     trigger:
-      branches: master
+      branches:
+      - master
 
 
 variables:
@@ -50,6 +53,8 @@ stages:
     - script: |
         go run gotest.tools/gotestsum@latest --junitfile unit-tests.xml
       displayName: 'Test'
+      env:
+        ARTIFACTZ_TOKEN: $(artifactz-token)
 
     - task: PublishTestResults@2
       inputs:

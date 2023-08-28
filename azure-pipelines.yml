@@ -32,8 +32,6 @@ resources:
 
 variables:
   - group: demo
-  - name: vmImageName
-    value: 'ubuntu-latest'
 
 stages:
 - stage: Test
@@ -41,7 +39,8 @@ stages:
   jobs:
   - job: Test
     displayName: Test
-    pool: 'local'
+    pool:
+      vmImage: 'ubuntu-latest'
     steps:
     - task: GoTool@0
       inputs:
